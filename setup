@@ -1,0 +1,60 @@
+@echo off
+title 还原加影藏
+color A
+echo 请输入密码：
+set ks=
+set /p ks=
+if "%ks%"=="密码" goto 1
+echo 密码错误
+pause
+exit
+:1
+cls
+title 主页面
+echo ----------------------------------------
+echo 作者：QuKin
+echo 输入1进入影藏
+echo 输入2进入还原
+echo ----------------------------------------
+set q=
+set /p q=
+if "%q%"=="1" goto yc
+if "%q%"=="2" goto hy
+goto cw
+:yc
+cls
+title 影藏
+echo ----------------------------------------
+echo 作者：QuKin
+set a=
+echo 请输入你想影藏的文件：
+echo 格式比如：D:\...(格式要注意)
+set /p a=
+attrib +s +a +h +r "%a%"
+echo 以完成影藏
+echo 请按回车回到主页面
+echo ----------------------------------------
+pause>nul
+goto 1
+:hy
+cls
+title 还原
+echo ----------------------------------------
+echo 作者：QuKin
+set b=
+echo 请输入你想还原的文件：
+echo 格式比如：D:\...(格式要注意)
+set /p b=
+attrib -s -a -h -r "%b%"
+echo 已完成还原
+echo 请按回车回到主页面
+echo ----------------------------------------
+pause>nul
+goto 1
+:cw
+cls
+title 错误
+echo 请不要输入错误的数字
+echo 按回车回到主页面
+pause>nul
+goto 1
